@@ -7,6 +7,7 @@ import(
     "net/url"
     "io"
     "encoding/json"
+    "github.com/TwiN/go-color"
 )
 
 type response struct{
@@ -71,10 +72,10 @@ func main(){
         return
     }
     for i := 0; i < len(response.Queryresult.Pods); i++{
-        fmt.Println(response.Queryresult.Pods[i].Title)
+        fmt.Println(color.Ize(color.Yellow, response.Queryresult.Pods[i].Title))
         for j := 0; j < len(response.Queryresult.Pods[i].Subpods); j++{
-            fmt.Println(response.Queryresult.Pods[i].Subpods[j].Title)
-            fmt.Println(response.Queryresult.Pods[i].Subpods[j].Plaintext)
+            fmt.Println(color.Ize(color.Cyan, response.Queryresult.Pods[i].Subpods[j].Title))
+            fmt.Println(color.Ize(color.Red, response.Queryresult.Pods[i].Subpods[j].Plaintext))
             fmt.Println()
         }
         fmt.Println()
